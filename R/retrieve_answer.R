@@ -7,6 +7,11 @@
 #' retrieve_answer (2)
 #' retrieve_answer (5)
 #'
+library(nycflights13)
+library(tidyverse)
+library(svDialogs)
+flights_o <- nycflights13::flights
+
 
 retrieve_answer <- function (opcion){
   opcion <- dlgInput( message = " Ingrese un número entre 1 y 6: ")$res
@@ -25,9 +30,9 @@ retrieve_answer <- function (opcion){
     Ex_1 <- filter(flights_o, arr_delay >= 120)
     Ex_2 <- filter(flights_o, dest  == "IAH" | dest == "HOU" )
 
-    cat("ITEM 1")
+    cat("ITEM 1.\n\n")
     print(Ex_1 [1:15,])
-    cat("ITEM 2")
+    cat("ITEM 2.\n\n")
     print(Ex_2 [1:15,])
 
   }
@@ -43,16 +48,17 @@ retrieve_answer <- function (opcion){
       arrange(desc(speed))
     Ex_6 <- arrange(flights_o, desc(distance),desc(air_time))
 
-    cat("ITEM 1")
+    cat("ITEM 1.\n\n")
     print(Ex_3 [1:15,])
-    cat("ITEM 2")
+    cat("ITEM 2.\n\n")
     print(Ex_4 [1:15,])
-    cat("ITEM 3")
+    cat("ITEM 3.\n\n")
     print(Ex_5 [1:15,])
-    cat("ITEM 4")
+    cat("ITEM 4.\n\n")
     print(Ex_6 [1:15,])
 
   }
+
 
   if (opcion == 3L){
     cat("Usted seleccionó: 5.4.1 Exercises: items 2,3 and 4, a continuación podrá observar los primero 15 datos.\n\n ")
@@ -62,15 +68,15 @@ retrieve_answer <- function (opcion){
     Ex_9 <- select(flights_o, contains("TIME"))
 
     cat("ITEM 2:","En este caso al incluir el nombre de una variable varias
-    veces el programa selecciona dicha columna una sola vez")
+    veces el programa selecciona dicha columna una sola vez.\n\n")
     print(Ex_7 [1:15,])
     cat("ITEM 3","La función any_of() selecciona variables haciendo coincidir
     patrones en sus nombres y es util ya que los nombres de las variables coinciden
-    con en el vector de caracteres, así selecciona estas columnas especificas.")
+    con en el vector de caracteres, así selecciona estas columnas especificas.\n\n")
     print(Ex_8 [1:15,])
     cat("ITEM 4","Para este caso, el ayudante contains ayuda a seleccionar todas
     las columnas cuyas variables tienen en su nombre la palabra time, el valor
-    predeterminado se cambia en donde va TIME ejemplo se puede usar la palabra delay.")
+    predeterminado se cambia en donde va TIME ejemplo se puede usar la palabra delay.\n\n")
     print(Ex_8 [1:15,])
   }
 
@@ -85,9 +91,9 @@ retrieve_answer <- function (opcion){
       mutate(dep_1= dep_time %/% 100 * 60 + dep_time %% 100) %% 1440%>%
       mutate(air_time_diff = air_time - arr_1 + dep_1)
 
-    cat("ITEM 1")
+    cat("ITEM 1.\n\n")
     print(Ex_10 [1:15,])
-    cat("ITEM 2")
+    cat("ITEM 2.\n\n")
     print(Ex_11 [1:15,])
   }
 
@@ -97,7 +103,7 @@ retrieve_answer <- function (opcion){
     cat("El restraso en la llegada es más importante que el retraso de salida ya
        que el primero puede traer consecuencias para el pasajero mientras que el
        retraso en la salida si bien se puede presentar, en algun caso no necesariamente
-      implica consecuencias")
+      implica consecuencias.\n\n")
   }
 
 
@@ -111,13 +117,8 @@ retrieve_answer <- function (opcion){
       filter(n >= 20) %>%
       filter(min_rank(on_time) == 1)
 
-    cat("ITEM 2")
+    cat("ITEM 2.\n\n")
     print(Ex_12)
-  }
-
-  else{
-    cat("seleccione el número deseado.\n\n")
-    retrieve_answer()
   }
 
 }
