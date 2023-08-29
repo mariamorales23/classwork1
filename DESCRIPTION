@@ -1,0 +1,19 @@
+Package: classwork1
+Type: Package
+Title: Package for Exercise Solution of Data Transformation
+Version: 0.1.0
+Author: person("Maria","Morales", "mapamoro23@gmail.com", role = c("aut", "cre"))
+Maintainer: The package maintainer <mapamoro23@gmail.com>
+Description: This package contains the solution of data transformation exercises,
+    the console is also implemented for the user to interact with that exercises 
+    solutions
+License: "use_mit_license()"
+Encoding: UTF-8
+LazyData: true
+Imports:
+    dplyr,
+    tidyverse,
+    svDialogs
+suggets: 
+    nycflights13
+RoxygenNote: 7.2.3
